@@ -97,14 +97,14 @@ let flag = 0 ;
 			document.getElementById(id_ans).style.backgroundColor = ans_color[i];
 		}
 		if(user_anser == idol_anser){
-			document.getElementById("arert_comment").innerText  = "ちひろ「じゃん！おめでとうございます！正解です！」";
+			document.getElementById("arert_comment").innerText  = "ちひろ「正解です！報酬はスタージュエルを購入できる権利です♪」";
 			ans_count = 6;
 		}
 	}
 	else
 		document.getElementById("arert_comment").innerText  = "ちひろ「その名前のアイドルは事務所にいませんよ？」";
 	if(ans_count == 5)
-		document.getElementById("arert_comment").innerText  = "ちひろ「正解は『"+idol_anser+"』でした！」";
+		document.getElementById("arert_comment").innerText  = "ちひろ「正解は『"+idol_anser+"』でした！罰としてスタージュエルを購入しましょう♪」";
 }
 function func_wordle_reset(){
 var random = Math.floor( Math.random() * idol_list.length );
