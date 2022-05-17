@@ -1,0 +1,292 @@
+<HTML> 
+<HEAD>
+<title>Idolem@ster シンデレラガールズ Starlight Stage</title>
+<meta http-equiv="Content-Type" content="Shift-JIS">
+
+
+<script type="text/javascript"> 
+let idol_list = new Array(	'あいばゆみ',
+							'あらきひな',
+							'いまいかな',
+							'おおたゆう',
+							'かみやなお',
+							'きたひなこ',
+							'きたみゆず',
+							'きばまなみ',
+							'きりのあや',
+							'こがこはる',
+							'さくままゆ',
+							'ささきちえ',
+							'さとうしん',
+							'しぶやりん',
+							'せきひろみ',
+							'せなしおり',
+							'ただりいな',
+							'つちやあこ',
+							'なかのゆか',
+							'なたーりあ',
+							'なんばえみ',
+							'にわひとみ',
+							'はらだみよ',
+							'ひのあかね',
+							'ふじいとも',
+							'ほりゆうこ',
+							'ほんだみお',
+							'まとばりさ',
+							'みふねみゆ',
+							'みよしさな',
+							'やぐちみう',
+							'やまとあき',
+							'ゆうきはる',
+							'ゆさこずえ',
+							'わくいるみ'
+							)
+var random = Math.floor( Math.random() * idol_list.length );
+let idol_anser = idol_list[random]
+let ans_count = 0;
+
+function func_wordle_check(){
+	let user_anser = document.getElementById('wordle_word').value;
+let ans_word = [];
+let ans_color = [];
+let flag = 0 ;
+	for(i=0;i<idol_list.length;i++){
+		if(user_anser == idol_list[i])
+			flag = 1;
+	}
+	if(user_anser.length < 5)
+		document.getElementById("arert_comment").innerText  = "ちひろ「5文字のアイドルの名前を入力してくださいね」";
+	else if(ans_count > 4) ;
+	else if(flag != 0){
+		document.getElementById("arert_comment").innerText  = "　";
+		ans_count++;
+		for(var i= 0; i < user_anser.length ; i++){
+			ans_color[i] =  '';
+			for(var j= 0; j < user_anser.length ; j++){
+				if(user_anser[i] == idol_anser[j]){
+					if(i==j){
+						document.getElementById(user_anser[i]).style.backgroundColor = 'green';
+					}
+					else if(document.getElementById(user_anser[i]).style.backgroundColor != 'green'){
+						document.getElementById(user_anser[i]).style.backgroundColor = 'orange';
+					}
+					else ;
+				}
+				else if(document.getElementById(user_anser[i]).style.backgroundColor == 'green' || document.getElementById(user_anser[i]).style.backgroundColor == 'orange') ;
+				else{
+					document.getElementById(user_anser[i]).style.backgroundColor = 'gray';
+				}
+
+				if(user_anser[i] == idol_anser[j]){
+					if(i==j){
+						ans_color[i] =  'green';
+					}
+					else if(ans_color[i] != 'green'){
+						ans_color[i] = 'orange';
+					}
+					else ;
+				}
+				else if(ans_color[i] == 'green' || ans_color[i] == 'orange') ;
+				else
+					ans_color[i] = 'gray';
+			}
+		}
+		for(var i= 0; i < user_anser.length ; i++){
+			var id_ans = "ans"+ans_count+(i+1);
+			document.getElementById(id_ans).innerText  = user_anser[i];
+			document.getElementById(id_ans).style.backgroundColor = ans_color[i];
+		}
+		if(user_anser == idol_anser){
+			document.getElementById("arert_comment").innerText  = "ちひろ「じゃん！おめでとうございます！正解です！」";
+			ans_count = 6;
+		}
+	}
+	else
+		document.getElementById("arert_comment").innerText  = "ちひろ「その名前のアイドルは事務所にいませんよ？」";
+	if(ans_count == 5)
+		document.getElementById("arert_comment").innerText  = "ちひろ「正解は『"+idol_anser+"』でした！」";
+}
+function func_wordle_reset(){
+var random = Math.floor( Math.random() * idol_list.length );
+	idol_anser = idol_list[random]
+	var st_list = document.getElementsByClassName('hyou');
+	for(var i =0 ;i < st_list.length ; i++)
+		st_list[i].childNodes[0].style.backgroundColor = '';
+	document.getElementById('wordle_word').value = '';
+	for(var j= 1; j < 6 ; j++){
+		for(var i= 1; i < 6 ; i++){
+			var id_ans = "ans"+j+i;
+			document.getElementById(id_ans).innerText  ="　";
+			document.getElementById(id_ans).style.backgroundColor = '';
+
+		}
+	}
+	document.getElementById("arert_comment").innerText  ="　";
+	ans_count = 0;
+}
+function PageLoad(evt) {
+
+	document.getElementById('wordle_check').addEventListener('click', func_wordle_check);
+	document.getElementById('wordle_reset').addEventListener('click', func_wordle_reset);
+}
+</script>
+
+<body onload="PageLoad();"  BGCOLOR="#EEEEEE" TEXT="#000000"  LEFTMARGIN=10 TOPMARGIN=10>
+<font size=6> Idolem@ster シンデレラガールズ Starlight Stage</font><br>
+シンデレラガールズスターライトステージに登場する名前が5文字のアイドルのWorldeです。<br>
+※突貫&お遊びツールなのでレイアウト崩れや多少のバグはご容赦を…。<br>
+
+<br>
+<div id = arert_comment>　</div>
+<br>
+<table border=1 style="font-size: 15pt;" >
+<tr><td>
+<table border=1 style="font-size: 15pt; ">
+回答
+<tr>
+<td><div id="ans11">　</td>
+<td><div id="ans12">　</td>
+<td><div id="ans13">　</td>
+<td><div id="ans14">　</td>
+<td><div id="ans15">　</td>
+</tr>
+<tr>
+<td><div id="ans21">　</td>
+<td><div id="ans22">　</td>
+<td><div id="ans23">　</td>
+<td><div id="ans24">　</td>
+<td><div id="ans25">　</td>
+</tr>
+<tr>
+<td><div id="ans31">　</td>
+<td><div id="ans32">　</td>
+<td><div id="ans33">　</td>
+<td><div id="ans34">　</td>
+<td><div id="ans35">　</td>
+</tr>
+<tr>
+<td><div id="ans41">　</td>
+<td><div id="ans42">　</td>
+<td><div id="ans43">　</td>
+<td><div id="ans44">　</td>
+<td><div id="ans45">　</td>
+</tr>
+<tr>
+<td><div id="ans51">　</td>
+<td><div id="ans52">　</td>
+<td><div id="ans53">　</td>
+<td><div id="ans54">　</td>
+<td><div id="ans55">　</td>
+</tr>
+</table>
+</td><td>
+<input type="text"  maxlength=5  id="wordle_word" value="" autofocus>
+
+<input type="button"  id="wordle_check" value="チェック">
+
+<input type="button"  id="wordle_reset" value="リセット">
+
+<table border=1 style="font-size: 15pt;" >
+<tr>
+<td class=hyou><div id="ぁ">ぁ</div></td>
+<td class=hyou><div id="っ">っ</div></td>
+<td class=hyou><div id="ゃ">ゃ</div></td>
+<td class=hyou><div id="ぱ">ぱ</div></td>
+<td class=hyou><div id="ば">ば</div></td>
+<td class=hyou><div id="だ">だ</div></td>
+<td class=hyou><div id="ざ">ざ</div></td>
+<td class=hyou><div id="が">が</div></td>
+<td class=hyou><div id="わ">わ</div></td>
+<td class=hyou><div id="ら">ら</div></td>
+<td class=hyou><div id="や">や</div></td>
+<td class=hyou><div id="ま">ま</div></td>
+<td class=hyou><div id="は">は</div></td>
+<td class=hyou><div id="な">な</div></td>
+<td class=hyou><div id="た">た</div></td>
+<td class=hyou><div id="さ">さ</div></td>
+<td class=hyou><div id="か">か</div></td>
+<td class=hyou><div id="あ">あ</div></td>
+</tr>
+<tr>
+<td class=hyou><div id="ぃ">ぃ</div></td>
+<td ></td>
+<td ></td>
+<td class=hyou><div id="ぴ">ぴ</div></td>
+<td class=hyou><div id="び">び</div></td>
+<td class=hyou><div id="ぢ">ぢ</div></td>
+<td class=hyou><div id="じ">じ</div></td>
+<td class=hyou><div id="ぎ">ぎ</div></td>
+<td ></td>
+<td class=hyou><div id="り">り</div></td>
+<td ></td>
+<td class=hyou><div id="み">み</div></td>
+<td class=hyou><div id="ひ">ひ</div></td>
+<td class=hyou><div id="に">に</div></td>
+<td class=hyou><div id="ち">ち</div></td>
+<td class=hyou><div id="し">し</div></td>
+<td class=hyou><div id="き">き</div></td>
+<td class=hyou><div id="い">い</div></td>
+</tr>
+<tr >
+<td class=hyou><div id="ぅ">ぅ</div></td>
+<td class=hyou><div id="ー">ー</div></td>
+<td class=hyou><div id="ゅ">ゅ</div></td>
+<td class=hyou><div id="ぷ">ぷ</div></td>
+<td class=hyou><div id="ぶ">ぶ</div></td>
+<td class=hyou><div id="づ">づ</div></td>
+<td class=hyou><div id="ず">ず</div></td>
+<td class=hyou><div id="ぐ">ぐ</div></td>
+<td class=hyou><div id="を">を</div></td>
+<td class=hyou><div id="る">る</div></td>
+<td class=hyou><div id="ゆ">ゆ</div></td>
+<td class=hyou><div id="む">む</div></td>
+<td class=hyou><div id="ふ">ふ</div></td>
+<td class=hyou><div id="ぬ">ぬ</div></td>
+<td class=hyou><div id="つ">つ</div></td>
+<td class=hyou><div id="す">す</div></td>
+<td class=hyou><div id="く">く</div></td>
+<td class=hyou><div id="う">う</div></td>
+</tr>
+<tr>
+<td class=hyou><div id="ぇ">ぇ</div></td>
+<td ></td>
+<td ></td>
+<td class=hyou><div id="ぺ">ぺ</div></td>
+<td class=hyou><div id="べ">べ</div></td>
+<td class=hyou><div id="で">で</div></td>
+<td class=hyou><div id="ぜ">ぜ</div></td>
+<td class=hyou><div id="げ">げ</div></td>
+<td ></td>
+<td class=hyou><div id="れ">れ</div></td>
+<td ></td>
+<td class=hyou><div id="め">め</div></td>
+<td class=hyou><div id="へ">へ</div></td>
+<td class=hyou><div id="ね">ね</div></td>
+<td class=hyou><div id="て">て</div></td>
+<td class=hyou><div id="せ">せ</div></td>
+<td class=hyou><div id="け">け</div></td>
+<td class=hyou><div id="え">え</div></td>
+</tr>
+<tr>
+<td class=hyou><div id="ぉ">ぉ</div></td>
+<td ></td>
+<td class=hyou><div id="ょ">ょ</div></td>
+<td class=hyou><div id="ぽ">ぽ</div></td>
+<td class=hyou><div id="ぼ">ぼ</div></td>
+<td class=hyou><div id="ど">ど</div></td>
+<td class=hyou><div id="ぞ">ぞ</div></td>
+<td class=hyou><div id="ご">ご</div></td>
+<td class=hyou><div id="ん">ん</div></td>
+<td class=hyou><div id="ろ">ろ</div></td>
+<td class=hyou><div id="よ">よ</div></td>
+<td class=hyou><div id="も">も</div></td>
+<td class=hyou><div id="ほ">ほ</div></td>
+<td class=hyou><div id="の">の</div></td>
+<td class=hyou><div id="と">と</div></td>
+<td class=hyou><div id="そ">そ</div></td>
+<td class=hyou><div id="こ">こ</div></td>
+<td class=hyou><div id="お">お</div></td>
+</tr>
+</td></tr></table>
+</body>
+</HTML>
