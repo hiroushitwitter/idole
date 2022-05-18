@@ -142,7 +142,8 @@ function PageLoad(evt) {
 }
 </script>
 
-<body onload="PageLoad();"  BGCOLOR="#EEEEEE" TEXT="#000000"  LEFTMARGIN=10 TOPMARGIN=10>
+<body onload="PageLoad();"  BGCOLOR="#EEEEEE" TEXT="#000000"  LEFTMARGIN=10 TOPMARGIN=10 >
+<div width="300px">
 <font size=6> Idolem@ster シンデレラガールズ <br>Starlight Stage</font><br>
 シンデレラガールズスターライトステージに登場する<br>名前が5文字のアイドルのWordleです。<br>
 <font size=2>※突貫&お遊びツールなのでレイアウト崩れや多少のバグはご容赦を…。</font><br>
@@ -151,7 +152,7 @@ function PageLoad(evt) {
 「<span style="background-color:#008000	">緑</span>」は文字も位置も当たっている。<br>
 「<span style="background-color:#808080	">灰色</span>」はその文字は使われていない。<br><br>
 
-<table border=1 style="font-size: 15pt; border-style:none;" -webkit-text-size-adjust: 100%;>
+<table border=1 width=400px style="font-size: 15pt; border-style:none;" -webkit-text-size-adjust: 100%; >
 <tr ><td style="border-style:none">
 <table border=1 Frame="Void" style="font-size: 15pt; ">
 回答結果
@@ -198,7 +199,7 @@ function PageLoad(evt) {
 </table>
 回答入力欄<br>
 <input type="text"  maxlength=5  id="wordle_word" value="" autofocus style="width:70%;font-size:100%;">
-<div style="margin-right: 10px;margin-top: 10px">
+<div style="margin-right:1px;margin-top: 10px">
 <input type="button"  id="wordle_check" value="チェック">
 <input type="button"  id="wordle_reset" value="リセット">
 </div>
@@ -335,5 +336,6 @@ function PageLoad(evt) {
 </table>
 
 <span id = arert_comment style="font-size:16px">　</span>
+</div>
 </body>
 </HTML>
