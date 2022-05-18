@@ -143,8 +143,8 @@ function PageLoad(evt) {
 </script>
 
 <body onload="PageLoad();"  BGCOLOR="#EEEEEE" TEXT="#000000"  LEFTMARGIN=10 TOPMARGIN=10>
-<font size=6> Idolem@ster シンデレラガールズ Starlight Stage</font><br>
-シンデレラガールズスターライトステージに登場する名前が5文字のアイドルのWordleです。<br>
+<font size=6> Idolem@ster シンデレラガールズ <br>Starlight Stage</font><br>
+シンデレラガールズスターライトステージに登場する<br>名前が5文字のアイドルのWordleです。<br>
 <font size=2>※突貫&お遊びツールなのでレイアウト崩れや多少のバグはご容赦を…。</font><br>
 テキストボックスにアイドル名を入力してチェックボタンを押します。<br>
 「<span style="background-color:#ffa500">オレンジ</span>」は文字は当たっているが位置が違う。<br>
@@ -197,23 +197,15 @@ function PageLoad(evt) {
 </tr>
 </table>
 回答入力欄<br>
-<input type="text"  maxlength=5  id="wordle_word" value="" autofocus style="width:70%;font-size:16px;">
+<input type="text"  maxlength=5  id="wordle_word" value="" autofocus style="width:70%;font-size:100%;">
 <div style="margin-right: 10px;margin-top: 10px">
 <input type="button"  id="wordle_check" value="チェック">
 <input type="button"  id="wordle_reset" value="リセット">
 </div>
 </td><td style="border-style:none">
 
-<table border=1 style="font-size: 15pt;" >
+<table border=1 style="font-size: 12pt;" >
 <tr>
-<td class=hyou><div id="ぁ">ぁ</div></td>
-<td class=hyou><div id="っ">っ</div></td>
-<td class=hyou><div id="ゃ">ゃ</div></td>
-<td class=hyou><div id="ぱ">ぱ</div></td>
-<td class=hyou><div id="ば">ば</div></td>
-<td class=hyou><div id="だ">だ</div></td>
-<td class=hyou><div id="ざ">ざ</div></td>
-<td class=hyou><div id="が">が</div></td>
 <td class=hyou><div id="わ">わ</div></td>
 <td class=hyou><div id="ら">ら</div></td>
 <td class=hyou><div id="や">や</div></td>
@@ -226,14 +218,6 @@ function PageLoad(evt) {
 <td class=hyou><div id="あ">あ</div></td>
 </tr>
 <tr>
-<td class=hyou><div id="ぃ">ぃ</div></td>
-<td ></td>
-<td ></td>
-<td class=hyou><div id="ぴ">ぴ</div></td>
-<td class=hyou><div id="び">び</div></td>
-<td class=hyou><div id="ぢ">ぢ</div></td>
-<td class=hyou><div id="じ">じ</div></td>
-<td class=hyou><div id="ぎ">ぎ</div></td>
 <td ></td>
 <td class=hyou><div id="り">り</div></td>
 <td ></td>
@@ -246,14 +230,6 @@ function PageLoad(evt) {
 <td class=hyou><div id="い">い</div></td>
 </tr>
 <tr >
-<td class=hyou><div id="ぅ">ぅ</div></td>
-<td class=hyou><div id="ー">ー</div></td>
-<td class=hyou><div id="ゅ">ゅ</div></td>
-<td class=hyou><div id="ぷ">ぷ</div></td>
-<td class=hyou><div id="ぶ">ぶ</div></td>
-<td class=hyou><div id="づ">づ</div></td>
-<td class=hyou><div id="ず">ず</div></td>
-<td class=hyou><div id="ぐ">ぐ</div></td>
 <td class=hyou><div id="を">を</div></td>
 <td class=hyou><div id="る">る</div></td>
 <td class=hyou><div id="ゆ">ゆ</div></td>
@@ -266,14 +242,6 @@ function PageLoad(evt) {
 <td class=hyou><div id="う">う</div></td>
 </tr>
 <tr>
-<td class=hyou><div id="ぇ">ぇ</div></td>
-<td ></td>
-<td ></td>
-<td class=hyou><div id="ぺ">ぺ</div></td>
-<td class=hyou><div id="べ">べ</div></td>
-<td class=hyou><div id="で">で</div></td>
-<td class=hyou><div id="ぜ">ぜ</div></td>
-<td class=hyou><div id="げ">げ</div></td>
 <td ></td>
 <td class=hyou><div id="れ">れ</div></td>
 <td ></td>
@@ -286,14 +254,6 @@ function PageLoad(evt) {
 <td class=hyou><div id="え">え</div></td>
 </tr>
 <tr>
-<td class=hyou><div id="ぉ">ぉ</div></td>
-<td ></td>
-<td class=hyou><div id="ょ">ょ</div></td>
-<td class=hyou><div id="ぽ">ぽ</div></td>
-<td class=hyou><div id="ぼ">ぼ</div></td>
-<td class=hyou><div id="ど">ど</div></td>
-<td class=hyou><div id="ぞ">ぞ</div></td>
-<td class=hyou><div id="ご">ご</div></td>
 <td class=hyou><div id="ん">ん</div></td>
 <td class=hyou><div id="ろ">ろ</div></td>
 <td class=hyou><div id="よ">よ</div></td>
@@ -304,6 +264,69 @@ function PageLoad(evt) {
 <td class=hyou><div id="そ">そ</div></td>
 <td class=hyou><div id="こ">こ</div></td>
 <td class=hyou><div id="お">お</div></td>
+</tr>
+<tr>
+<td colspan="10"></td>
+</tr>
+<tr>
+<td ></td>
+<td ></td>
+<td class=hyou><div id="ぁ">ぁ</div></td>
+<td class=hyou><div id="っ">っ</div></td>
+<td class=hyou><div id="ゃ">ゃ</div></td>
+<td class=hyou><div id="ぱ">ぱ</div></td>
+<td class=hyou><div id="ば">ば</div></td>
+<td class=hyou><div id="だ">だ</div></td>
+<td class=hyou><div id="ざ">ざ</div></td>
+<td class=hyou><div id="が">が</div></td>
+</tr>
+<tr>
+<td ></td>
+<td ></td>
+<td class=hyou><div id="ぃ">ぃ</div></td>
+<td ></td>
+<td ></td>
+<td class=hyou><div id="ぴ">ぴ</div></td>
+<td class=hyou><div id="び">び</div></td>
+<td class=hyou><div id="ぢ">ぢ</div></td>
+<td class=hyou><div id="じ">じ</div></td>
+<td class=hyou><div id="ぎ">ぎ</div></td>
+</tr>
+<tr>
+<td ></td>
+<td ></td>
+<td class=hyou><div id="ぅ">ぅ</div></td>
+<td class=hyou><div id="ー">ー</div></td>
+<td class=hyou><div id="ゅ">ゅ</div></td>
+<td class=hyou><div id="ぷ">ぷ</div></td>
+<td class=hyou><div id="ぶ">ぶ</div></td>
+<td class=hyou><div id="づ">づ</div></td>
+<td class=hyou><div id="ず">ず</div></td>
+<td class=hyou><div id="ぐ">ぐ</div></td>
+</tr>
+<tr>
+<td ></td>
+<td ></td>
+<td class=hyou><div id="ぇ">ぇ</div></td>
+<td ></td>
+<td ></td>
+<td class=hyou><div id="ぺ">ぺ</div></td>
+<td class=hyou><div id="べ">べ</div></td>
+<td class=hyou><div id="で">で</div></td>
+<td class=hyou><div id="ぜ">ぜ</div></td>
+<td class=hyou><div id="げ">げ</div></td>
+</tr>
+<tr>
+<td ></td>
+<td ></td>
+<td class=hyou><div id="ぉ">ぉ</div></td>
+<td ></td>
+<td class=hyou><div id="ょ">ょ</div></td>
+<td class=hyou><div id="ぽ">ぽ</div></td>
+<td class=hyou><div id="ぼ">ぼ</div></td>
+<td class=hyou><div id="ど">ど</div></td>
+<td class=hyou><div id="ぞ">ぞ</div></td>
+<td class=hyou><div id="ご">ご</div></td>
 </tr>
 </td></tr></table>
 <br>
