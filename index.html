@@ -143,17 +143,15 @@ function PageLoad(evt) {
 </script>
 
 <body onload="PageLoad();"  BGCOLOR="#EEEEEE" TEXT="#000000"  LEFTMARGIN=10 TOPMARGIN=10 >
-<div width="300px">
-<font size=6> Idolem@ster シンデレラガールズ <br>Starlight Stage</font><br>
+<font size=5> Idolem@ster シンデレラガールズ <br>Starlight Stage</font><br>
 シンデレラガールズスターライトステージに登場する<br>名前が5文字のアイドルのWordleです。<br>
-<font size=2>※突貫&お遊びツールなのでレイアウト崩れや多少のバグはご容赦を…。</font><br>
 テキストボックスにアイドル名を入力してチェックボタンを押します。<br>
 「<span style="background-color:#ffa500">オレンジ</span>」は文字は当たっているが位置が違う。<br>
 「<span style="background-color:#008000	">緑</span>」は文字も位置も当たっている。<br>
 「<span style="background-color:#808080	">灰色</span>」はその文字は使われていない。<br><br>
 
-<table border=1 width=400px style="font-size: 15pt; border-style:none;" -webkit-text-size-adjust: 100%; >
-<tr ><td style="border-style:none">
+<table border=1  style="font-size: 15pt; border-style:none;" >
+<tr ><td style="border-style:none" width=180px>
 <table border=1 Frame="Void" style="font-size: 15pt; ">
 回答結果
 <tr>
@@ -198,10 +196,10 @@ function PageLoad(evt) {
 </tr>
 </table>
 回答入力欄<br>
-<input type="text"  maxlength=5  id="wordle_word" value="" autofocus style="width:70%;font-size:100%;">
+<input type="text"  maxlength=5  id="wordle_word" value="" autofocus style="width:90%;font-size:100%;">
 <div style="margin-right:1px;margin-top: 10px">
 <input type="button"  id="wordle_check" value="チェック">
-<input type="button"  id="wordle_reset" value="リセット">
+<input type="button"  id="wordle_reset" value="再挑戦">
 </div>
 </td><td style="border-style:none">
 
@@ -336,6 +334,5 @@ function PageLoad(evt) {
 </table>
 
 <span id = arert_comment style="font-size:16px">　</span>
-</div>
 </body>
 </HTML>
