@@ -130,7 +130,6 @@ let flag = 0 ;
 function func_wordle_reset(){
 var random = Math.floor( Math.random() * idol_list.length );
 	idol_anser = idol_list[random]
-	console.log(idol_anser);
 	var st_list = document.getElementsByClassName('hyou');
 	for(var i =0 ;i < st_list.length ; i++)
 		st_list[i].childNodes[0].style.backgroundColor = '';
