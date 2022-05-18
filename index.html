@@ -58,9 +58,11 @@ let flag = 0 ;
 		if(user_anser == idol_list[i])
 			flag = 1;
 	}
-	if(user_anser.length < 5)
-		document.getElementById("arert_comment").textContent   = "ちひろ「5文字のアイドルの名前を入力してくださいね」";
-	else if(ans_count > 4) ;
+	if(ans_count > 4) ;
+	else if(user_anser.length < 5){
+		document.getElementById("arert_comment").textContent   = "ちひろ「5文字のアイドルの名前を入力してください♪」";
+		document.getElementById('wordle_word').focus();
+	}
 	else if(flag != 0){
 		document.getElementById("arert_comment").textContent   = "　";
 		ans_count++;
@@ -103,22 +105,32 @@ let flag = 0 ;
 		if(user_anser == idol_anser){
 			document.getElementById("arert_comment").textContent   = "ちひろ「正解です！報酬はスタージュエルを購入できる権利です♪」";
 			ans_count = 6;
+			document.getElementById('wordle_word').value="";
+		document.getElementById('wordle_check').disabled = true;
 		}
-		
-	document.getElementById('wordle_word').value="";
+		else if(ans_count < 5){
+		document.getElementById('wordle_word').focus();
+		document.getElementById('wordle_word').value="";
+		}
 	}
-	else
+	else{
 		document.getElementById("arert_comment").textContent   = "ちひろ「その名前のアイドルは事務所にいませんよ？」";
-	if(ans_count == 5)
-		document.getElementById("arert_comment").textContent   = "ちひろ「正解は『"+idol_anser+"』でした！」";
-	
-	document.getElementById('wordle_word').focus();
+		document.getElementById('wordle_word').focus();
+	}
+	if(ans_count == 5){
+		document.getElementById("arert_comment").textContent   = "ちひろ「正解は『"+idol_anser+"』ちゃんでした！」";
+		document.getElementById('wordle_word').value="";
+		document.getElementById('wordle_check').disabled = true;
+		ans_count++;
+	}
+
 	
 }
 
 function func_wordle_reset(){
 var random = Math.floor( Math.random() * idol_list.length );
 	idol_anser = idol_list[random]
+	console.log(idol_anser);
 	var st_list = document.getElementsByClassName('hyou');
 	for(var i =0 ;i < st_list.length ; i++)
 		st_list[i].childNodes[0].style.backgroundColor = '';
@@ -134,6 +146,7 @@ var random = Math.floor( Math.random() * idol_list.length );
 	ans_count = 0;
 	document.getElementById('wordle_word').focus();
 	document.getElementById('wordle_word').value="";
+	document.getElementById('wordle_check').disabled = false;
 }
 function PageLoad(evt) {
 	document.getElementById('wordle_check').addEventListener('click', func_wordle_check);
@@ -145,7 +158,8 @@ function PageLoad(evt) {
 <body onload="PageLoad();"  BGCOLOR="#EEEEEE" TEXT="#000000"  LEFTMARGIN=10 TOPMARGIN=10 >
 <font size=5> Idolem@ster シンデレラガールズ <br>Starlight Stage</font><br>
 シンデレラガールズスターライトステージに登場する<br>名前が5文字のアイドルのWordleです。<br>
-テキストボックスにアイドル名を入力してチェックボタンを押します。<br>
+回答入力欄のテキストボックスにアイドル名を入力して<br>
+チェックボタンを押します。<br>
 「<span style="background-color:#ffa500">オレンジ</span>」は文字は当たっているが位置が違う。<br>
 「<span style="background-color:#008000	">緑</span>」は文字も位置も当たっている。<br>
 「<span style="background-color:#808080	">灰色</span>」はその文字は使われていない。<br><br>
