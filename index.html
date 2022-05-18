@@ -55,10 +55,10 @@ let flag = 0 ;
 			flag = 1;
 	}
 	if(user_anser.length < 5)
-		document.getElementById("arert_comment").innerText  = "ちひろ「5文字のアイドルの名前を入力してくださいね」";
+		document.getElementById("arert_comment").textContent   = "ちひろ「5文字のアイドルの名前を入力してくださいね」";
 	else if(ans_count > 4) ;
 	else if(flag != 0){
-		document.getElementById("arert_comment").innerText  = "　";
+		document.getElementById("arert_comment").textContent   = "　";
 		ans_count++;
 		for(var i= 0; i < user_anser.length ; i++){
 			ans_color[i] =  '';
@@ -97,16 +97,16 @@ let flag = 0 ;
 			document.getElementById(id_ans).style.backgroundColor = ans_color[i];
 		}
 		if(user_anser == idol_anser){
-			document.getElementById("arert_comment").innerText  = "ちひろ「正解です！報酬はスタージュエルを購入できる権利です♪」";
+			document.getElementById("arert_comment").textContent   = "ちひろ「正解です！報酬はスタージュエルを購入できる権利です♪」";
 			ans_count = 6;
 		}
 		
 	document.getElementById('wordle_word').value="";
 	}
 	else
-		document.getElementById("arert_comment").innerText  = "ちひろ「その名前のアイドルは事務所にいませんよ？」";
+		document.getElementById("arert_comment").textContent   = "ちひろ「その名前のアイドルは事務所にいませんよ？」";
 	if(ans_count == 5)
-		document.getElementById("arert_comment").innerText  = "ちひろ「正解は『"+idol_anser+"』でした！」";
+		document.getElementById("arert_comment").textContent   = "ちひろ「正解は『"+idol_anser+"』でした！」";
 	
 	document.getElementById('wordle_word').focus();
 	
@@ -143,9 +143,9 @@ function PageLoad(evt) {
 シンデレラガールズスターライトステージに登場する名前が5文字のアイドルのWordleです。<br>
 <font size=2>※突貫&お遊びツールなのでレイアウト崩れや多少のバグはご容赦を…。</font><br>
 テキストボックスにアイドル名を入力してチェックボタンを押します。<br>
-「オレンジ」は文字は当たっているが位置が違う。<br>
-「緑」は文字も位置も当たっている。<br>
-「灰色」はその文字は使われていない。<br>
+「<span style="background-color:#ffa500">オレンジ</span>」は文字は当たっているが位置が違う。<br>
+「<span style="background-color:#008000	">緑</span>」は文字も位置も当たっている。<br>
+「<span style="background-color:#808080	">灰色</span>」はその文字は使われていない。<br><br>
 
 <table border=1 style="font-size: 15pt; border-style:none;">
 <tr ><td style="border-style:none">
@@ -307,6 +307,6 @@ function PageLoad(evt) {
 <br>
 </table>
 
-<p id = arert_comment style="font-size:16px">　</p>
+<span id = arert_comment style="font-size:10px">　</span>
 </body>
 </HTML>
