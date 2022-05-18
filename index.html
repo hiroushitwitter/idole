@@ -146,6 +146,7 @@ var random = Math.floor( Math.random() * idol_list.length );
 	document.getElementById('wordle_word').focus();
 	document.getElementById('wordle_word').value="";
 	document.getElementById('wordle_check').disabled = false;
+	document.getElementById("arert_comment").textContent   = "ちひろ「プロデューサーさん、頑張ってください！」";
 }
 function PageLoad(evt) {
 	document.getElementById('wordle_check').addEventListener('click', func_wordle_check);
@@ -346,6 +347,6 @@ function PageLoad(evt) {
 </td></tr>
 </table>
 
-<span id = arert_comment style="font-size:16px">　</span>
+<span id = arert_comment style="font-size:16px">ちひろ「プロデューサーさん、頑張ってください！」</span>
 </body>
 </HTML>
