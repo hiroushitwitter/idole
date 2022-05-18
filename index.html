@@ -141,21 +141,18 @@ function PageLoad(evt) {
 <body onload="PageLoad();"  BGCOLOR="#EEEEEE" TEXT="#000000"  LEFTMARGIN=10 TOPMARGIN=10>
 <font size=6> Idolem@ster シンデレラガールズ Starlight Stage</font><br>
 シンデレラガールズスターライトステージに登場する名前が5文字のアイドルのWordleです。<br>
+<font size=2>※突貫&お遊びツールなのでレイアウト崩れや多少のバグはご容赦を…。</font><br>
 テキストボックスにアイドル名を入力してチェックボタンを押します。<br>
 「オレンジ」は文字は当たっているが位置が違う。<br>
 「緑」は文字も位置も当たっている。<br>
 「灰色」はその文字は使われていない。<br>
-<br>
-※突貫&お遊びツールなのでレイアウト崩れや多少のバグはご容赦を…。<br>
 
-<br>
-<div id = arert_comment style=font-size:16px>　</div>
-<br>
-<table border=1 style="font-size: 15pt;" >
-<tr><td>
-<table border=1 style="font-size: 15pt; ">
-回答
+<table border=1 style="font-size: 15pt; border-style:none;">
+<tr ><td style="border-style:none">
+<table border=1 Frame="Void" style="font-size: 15pt; ">
+回答結果
 <tr>
+<td style="border-style:none">1</td>
 <td><div id="ans11">　</td>
 <td><div id="ans12">　</td>
 <td><div id="ans13">　</td>
@@ -163,6 +160,7 @@ function PageLoad(evt) {
 <td><div id="ans15">　</td>
 </tr>
 <tr>
+<td style="border-style:none">2</td>
 <td><div id="ans21">　</td>
 <td><div id="ans22">　</td>
 <td><div id="ans23">　</td>
@@ -170,6 +168,7 @@ function PageLoad(evt) {
 <td><div id="ans25">　</td>
 </tr>
 <tr>
+<td style="border-style:none">3</td>
 <td><div id="ans31">　</td>
 <td><div id="ans32">　</td>
 <td><div id="ans33">　</td>
@@ -177,6 +176,7 @@ function PageLoad(evt) {
 <td><div id="ans35">　</td>
 </tr>
 <tr>
+<td style="border-style:none">4</td>
 <td><div id="ans41">　</td>
 <td><div id="ans42">　</td>
 <td><div id="ans43">　</td>
@@ -184,6 +184,7 @@ function PageLoad(evt) {
 <td><div id="ans45">　</td>
 </tr>
 <tr>
+<td style="border-style:none">5</td>
 <td><div id="ans51">　</td>
 <td><div id="ans52">　</td>
 <td><div id="ans53">　</td>
@@ -191,13 +192,14 @@ function PageLoad(evt) {
 <td><div id="ans55">　</td>
 </tr>
 </table>
-	
+回答入力欄<br>
+
 <input type="text"  maxlength=5  id="wordle_word" value="" autofocus>
 <br>
 <input type="button"  id="wordle_check" value="チェック">
 
 <input type="button"  id="wordle_reset" value="リセット">
-</td><td>
+</td><td style="border-style:none">
 
 <table border=1 style="font-size: 15pt;" >
 <tr>
@@ -301,5 +303,10 @@ function PageLoad(evt) {
 <td class=hyou><div id="お">お</div></td>
 </tr>
 </td></tr></table>
+<br>
+<br>
+</table>
+
+<p id = arert_comment style=font-size:16px>　</p>
 </body>
 </HTML>
