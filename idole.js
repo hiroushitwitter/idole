@@ -59,6 +59,9 @@ let flag = 0 ;
 		document.getElementById('wordle_word').focus();
 	}
 	else if(flag != 0){
+		if(user_anser=="せきひろみ" && idol_anser !="せきひろみ" && ans_count == 0){
+			document.getElementById("arert_comment").textContent   = "裕美「初手関裕美、私じゃきゃみのがしちゃうよ？」";
+		}		
 		document.getElementById("arert_comment").textContent   = "　";
 		ans_count++;
 		for(var i= 0; i < user_anser.length ; i++){
