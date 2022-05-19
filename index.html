@@ -46,6 +46,7 @@ let idol_list = new Array(	'あいばゆみ',
 							)
 var random = Math.floor( Math.random() * idol_list.length );
 let idol_anser;
+let win_count=0;
 let ans_count = 0;
 let current_score = 0;
 function func_wordle_check(){
@@ -107,7 +108,8 @@ let flag = 0 ;
 			document.getElementById(id_ans).style.backgroundColor = ans_color[i];
 		}
 		if(user_anser == idol_anser){
-			document.getElementById("arert_comment").textContent   = "ちひろ「正解です！報酬はスタージュエルを購入できる権利です♪」";
+			win_count++;
+			document.getElementById("arert_comment").textContent   = "ちひろ「正解です！プロデューサーさんは現在"+win_count+"連勝中です♪」";
 			document.getElementById('wordle_word').value="";
 			document.getElementById('wordle_check').value = "続けて挑戦";
 			let x =2* (ans_count)/max_ans;
@@ -127,7 +129,10 @@ let flag = 0 ;
 		document.getElementById('wordle_word').focus();
 	}
 	if(ans_count == max_ans){
-		document.getElementById("arert_comment").textContent   = "ちひろ「正解は『"+idol_anser+"』ちゃんでした！」";
+		if(win_count == 0)
+			document.getElementById("arert_comment").textContent   = "ちひろ「正解は『"+idol_anser+"』ちゃんでした！";
+		else
+			document.getElementById("arert_comment").textContent   = "ちひろ「正解は『"+idol_anser+"』ちゃんでした！"+win_count+"連勝でしたね！」";
 		document.getElementById('wordle_word').value="";
 		document.getElementById('wordle_check').disabled = true;
 	}
@@ -151,7 +156,6 @@ let max_ans = Number(document.getElementById('ans_num').value);
 	document.getElementById("arert_comment").innerText  ="　";
 	ans_count = 0;
 	document.getElementById('wordle_word').value="";
-	document.getElementById("arert_comment").textContent   = "ちひろ「プロデューサーさん、頑張ってください！」";
 	document.getElementById('wordle_check').value = "チェック";
 }
 
@@ -178,6 +182,7 @@ let max_ans = Number(document.getElementById('ans_num').value);
 	current_score = 0;
 	document.getElementById("score").textContent   = current_score;
 	document.getElementById('wordle_check').value = "チェック";
+	win_count = 0 ;
 }
 
 function func_check_num(){
@@ -380,6 +385,13 @@ function PageLoad(evt) {
 </td></tr>
 </table>
 現在の得点：<span id = score style="font-size:16px">0</span>点<br>
-<span id = arert_comment style="font-size:16px"></span>
+<span id = arert_comment style="font-size:16px"></span><br><br>
+
+機能更新<br>
+<hr>
+・挑戦回数が1回～10回から選べるようになりました。<br>
+・得点機能を追加しました。<br>
+　失敗するまでスコアが加算されます。<br>
+・ちひろさんが連勝数を教えてくれます。<br>
 </body>
 </HTML>
