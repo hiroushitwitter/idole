@@ -61,7 +61,7 @@ let flag = 0 ;
 	else if(flag != 0){
 		document.getElementById("arert_comment").textContent   = "　";
 		if(user_anser=="せきひろみ" && idol_anser !="せきひろみ" && ans_count == 0){
-			document.getElementById("arert_comment").textContent   = "裕美「私じゃきゃみのがしちゃうよ？初手、関裕美」";
+			document.getElementById("arert_comment").textContent   = "裕美「私じゃきゃ見逃しちゃうよ？初手、関裕美」";
 		}		
 		ans_count++;
 		for(var i= 0; i < user_anser.length ; i++){
