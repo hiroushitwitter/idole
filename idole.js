@@ -1,4 +1,3 @@
-<script type="text/javascript"> 
 let idol_list = new Array(	'あいばゆみ',
 							'あらきひな',
 							'いまいかな',
@@ -145,4 +144,3 @@ function PageLoad(evt) {
 	document.getElementById('wordle_check').addEventListener('click', func_wordle_check);
 	document.getElementById('wordle_reset').addEventListener('click', func_wordle_reset);
 }
-</script>
