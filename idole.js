@@ -208,10 +208,11 @@ function func_wordle_check(){
 	let user_anser;
 let ans_word = [];
 let ans_color = [];
-
+let j;
+let i;
 let flag = 0 ;
 	for(i=0;i<user_anser_temp1.length;i++){
-		if(user_anser_temp1[i]=="ぶ")
+		if(user_anser_temp1[i]=="ゔ")
 			user_anser_temp2[i]="ぶ";
 		else
 			user_anser_temp2[i]=user_anser_temp1[i];
@@ -246,9 +247,9 @@ let flag = 0 ;
 			}
 		}		
 		ans_count++;
-		for(var i= 0; i < user_anser.length ; i++){
+		for(i= 0; i < user_anser.length ; i++){
 			ans_color[i] =  '';
-			for(var j= 0; j < idol_anser.length ; j++){
+			for(j= 0; j < idol_anser.length ; j++){
 				if(user_anser[i] == idol_anser[j]){
 					if(i==j){
 						document.getElementById(user_anser[i]).style.backgroundColor = 'green';
@@ -277,7 +278,7 @@ let flag = 0 ;
 					ans_color[i] = 'gray';
 			}
 		}
-		for(var i= 0; i < user_anser.length ; i++){
+		for(i= 0; i < user_anser.length ; i++){
 			var id_ans = "ans"+ans_count+"_"+(i+1);
 			document.getElementById(id_ans).innerText  = user_anser[i];
 			document.getElementById(id_ans).style.backgroundColor = ans_color[i];
