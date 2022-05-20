@@ -491,7 +491,7 @@ function func_full_idol_select(){
 function twitText() {
 	let s;
 	let url;
-	s = "Idolem@ster シンデレラガールズStarlight Stage(デレステWorlde)のプレイ結果、　"+win_count.toLocaleString()+" 連続正解、最高得点は "+high_score.toLocaleString()+" 点でした！";
+	s = "Idolem@ster デレステ(デレステWorlde)のプレイ結果、 "+win_count.toLocaleString()+" 連続正解、最高得点は "+high_score.toLocaleString()+" 点でした！";
 	url = document.location.href;
 	
 	if (s != "") {
