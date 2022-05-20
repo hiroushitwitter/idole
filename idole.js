@@ -203,12 +203,20 @@ let high_score = 0;
 let max_ans ;
 
 function func_wordle_check(){
-	let user_anser = document.getElementById('wordle_word').value;
+	let user_anser_temp1 = document.getElementById('wordle_word').value;
+	let user_anser_temp2 = [];
+	let user_anser;
 let ans_word = [];
 let ans_color = [];
 
 let flag = 0 ;
-
+	for(i=0;i<user_anser_temp1.length;i++){
+		if(user_anser_temp1[i]=="ぶ")
+			user_anser_temp2[i]="ぶ";
+		else
+			user_anser_temp2[i]=user_anser_temp1[i];
+	}
+	user_anser =user_anser_temp2.join('');
 	
 	for(i=0;i<idol_list.length;i++){
 		if(user_anser == idol_list[i])
