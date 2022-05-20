@@ -203,19 +203,31 @@ let high_score = 0;
 let max_ans ;
 
 function func_wordle_check(){
-	let user_anser = document.getElementById('wordle_word').value;
+	let user_anser_temp1 = document.getElementById('wordle_word').value;
+	let user_anser_temp2 = [];
+	let user_anser;
 let ans_word = [];
 let ans_color = [];
 
 let flag = 0 ;
+	for(i=0;i<user_anser_temp1.length;i++){
+		if(user_anser_temp1[i]=="ゔ")
+			user_anser_temp2[i]="ぶ";
+		else
+			user_anser_temp2[i]=user_anser_temp1[i];
+	}
+	user_anser =user_anser_temp2.join('');
+	console.log(user_anser);
 	for(i=0;i<idol_list.length;i++){
 		if(user_anser == idol_list[i])
 			flag = 1;
 	}
+
 	if(ans_count == max_ans) ;
 	else if(ans_count == max_ans+1){
 		func_worlde_continue();
 	}
+
 	else if(flag != 0){
 		document.getElementById("arert_comment").textContent   = "　";
 		if(user_anser=="せきひろみ" && idol_anser !="せきひろみ" && ans_count == 0){
