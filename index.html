@@ -12,24 +12,28 @@ body {
 
 <body onload="PageLoad();"  BGCOLOR="#EEEEEE" TEXT="#000000"  LEFTMARGIN=10 TOPMARGIN=10 >
 <font size=5> Idolem@ster シンデレラガールズ <br>Starlight Stage</font><br>
-シンデレラガールズスターライトステージに登場する<br>名前が5文字のアイドルのWordleです。<br>
-回答入力欄のテキストボックスにアイドル名を入力して<br>
-チェックボタンを押します。<br>
-「<span style="background-color:#ffa500">オレンジ</span>」は文字は当たっているが位置が違う。<br>
-「<span style="background-color:#008000	">緑</span>」は文字も位置も当たっている。<br>
-「<span style="background-color:#808080	">灰色</span>」はその文字は使われていない。<br><br>
+シンデレラガールズスターライトステージに登場する<br>
+総勢190名のアイドルのWordleです。<font size=2>(idolとWordleをかけてます)</font><br>
+回答入力欄のテキストボックスにアイドル名をひらがなで入力して<br>
+チェックボタンを押します。回答結果は<br>
+「<span style="background-color:#ffa500">オレンジ</span>」は文字は当たっているが位置が違います。<br>
+「<span style="background-color:#008000	">緑</span>」は文字も位置も当たっています。<br>
+「<span style="background-color:#808080	">灰色</span>」はその文字は使われていません。<br><br>
 
-挑戦回数設定：<input type="number"  id="ans_num" value="5" style="width:45px" min="1" max="10" > 回
+挑戦回数設定：<input type="number"  id="ans_num" value="5" style="width:45px" min="1" max="15" ></input> 回<br>
+最小文字数設定：<input type="number"  id="idol_min_num" value="5" style="width:45px" min="3" max="9" ></input> 文字<br>
+最大文字数設定：<input type="number"  id="idol_max_num" value="5" style="width:45px" min="3" max="9" ></input> 文字　
+<input type="button" id="full_idol" value="全アイドル選択"></input><br>
 <table border=1  style="font-size: 15pt; border-style:none;" >
 <tr ><td style="border-style:none" width=180px>
 <table border=1 Frame="Void" style="font-size: 15pt; " id="ans_table">
 回答結果
 </table>
 回答入力欄<br>
-<input type="text"  maxlength=5  id="wordle_word" value=""  style="width:90%;font-size:100%;" inputmode="kana">
+<input type="text"  maxlength=9  id="wordle_word" value=""  style="width:90%;font-size:100%;" inputmode="kana"></input>
 <div style="margin-right:1px;margin-top: 10px">
-<input type="button"  id="wordle_check" value="チェック">
-<input type="button"  id="wordle_reset" value="最初から">
+<input type="button"  id="wordle_check" value="チェック"></input>
+<input type="button"  id="wordle_reset" value="最初から"></input>
 </div>
 </td><td style="border-style:none">
 
@@ -162,14 +166,57 @@ body {
 <br>
 </td></tr>
 </table>
-現在の得点：<span id = score style="font-size:16px">0</span>点<br>
-<span id = arert_comment style="font-size:16px"></span><br><br>
+SCORE　<span id = score style="font-size:16px">0</span><br>
+HGH SCORE　<span id = high_score style="font-size:16px">0</span><br>
+<span id = arert_comment style="font-size:16px"></span><br><br><br><br>
+<span id = twitter_send style="font-size:16px"></span><br><br><br><br>
 
+<font size="2px">
+Ver.1.1.1リリース<br>
+<hr>
+5月20日にVer.1.1.1をリリースいたしました。<br>
+バージョンアップ内容の詳細は以下の通りです。<br>
+<br>
 機能更新<br>
 <hr>
+・文字数制限が無くなりました。正解アイドルが190名に増えました。<br>
+　入力欄に190名すべてのアイドル名が入力可能です。<br>
+　※一部アイドル名の「・」は入力の必要はありません。<br>
+　※同一文字が複数ある場合の挙動が本家Worldeとは異なりますが現在のところ<br>
+　　仕様となります。（難易度は極僅かですが下がる仕様です、たぶん）<br>
+・正解アイドル名の文字数ができるようになりました。<br>
+　最小文字数、最大文字数を設定するとその文字数を含む範囲のアイドルが<br>
+　ランダムに正解アイドルに選ばれます。<br>
+　ゲーム途中で最小/最大文字数設定を変更すると、スコアがクリアされ<br>
+　最初からの挑戦となります。<br>
+・挑戦回数が1回～15回から選べるようになりました。<br>
+・ハイスコア機能が追加されました。<br>
+　ブラウザ更新をするとハイスコアがクリアされます。<br>
+・結果をツイートする機能が追加されました。<br>
+　正解もしくは失敗で結果をツイートするのリンクが表示されます。<br>
+　クリックするとその時点の連続正解数とハイスコアがツイートできます。<br>
+　※Twitterの入力画面に遷移します。クリックしただけではツイートされません。<br>
+<br>
+不具合修正
+<hr>
+以下の不具合を修正しました。<br>
+・軽微な不具合<br>
+<br>
+<br>
+
+Ver.1.1.0リリース<br>
+<hr>
+5月20日にVer.1.1.0をリリースいたしました。<br>
+バージョンアップ内容の詳細は以下の通りです。<br>
+<br>
+機能更新<br>
+<hr>
+
 ・挑戦回数が1回～10回から選べるようになりました。<br>
+　ゲーム途中で挑戦回数を変更すると、スコアがクリアされ最初からの挑戦となります。<br>
 ・得点機能を追加しました。<br>
 　失敗するまでスコアが加算されます。<br>
-・ちひろさんが連勝数を教えてくれますよ。<br>
+・ちひろさんが連勝数を教えてくれます。<br>
+</font>
 </body>
 </HTML>
