@@ -217,7 +217,7 @@ let flag = 0 ;
 			user_anser_temp2[i]=user_anser_temp1[i];
 	}
 	user_anser =user_anser_temp2.join('');
-	console.log(user_anser);
+	
 	for(i=0;i<idol_list.length;i++){
 		if(user_anser == idol_list[i])
 			flag = 1;
