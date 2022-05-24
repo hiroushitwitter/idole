@@ -201,16 +201,22 @@ let ans_count = 0;
 let current_score = 0;
 let high_score = 0;
 let max_ans ;
+let idol_anser_reg = [];
 
 function func_wordle_check(){
 	let user_anser_temp1 = document.getElementById('wordle_word').value;
 	let user_anser_temp2 = [];
 	let user_anser;
-let ans_word = [];
-let ans_color = [];
-let j;
-let i;
-let flag = 0 ;
+	let ans_word = [];
+	let ans_color = [];
+	let j;
+	let i;
+	let k;
+	let m;
+	let user_reg = [];
+	let user_reg_temp = [];
+
+//イヴサンタクロースのためだけの処理
 	for(i=0;i<user_anser_temp1.length;i++){
 		if(user_anser_temp1[i]=="ゔ")
 			user_anser_temp2[i]="ぶ";
@@ -219,17 +225,11 @@ let flag = 0 ;
 	}
 	user_anser =user_anser_temp2.join('');
 	
-	for(i=0;i<idol_list.length;i++){
-		if(user_anser == idol_list[i])
-			flag = 1;
-	}
-
 	if(ans_count == max_ans) ;
 	else if(ans_count == max_ans+1){
 		func_worlde_continue();
 	}
-
-	else if(flag != 0){
+	else if(idol_list.indexOf(user_anser) != -1){
 		document.getElementById("arert_comment").textContent   = "　";
 		if(user_anser=="せきひろみ" && idol_anser !="せきひろみ" && ans_count == 0){
 			let seki_runrun = Math.floor( Math.random() * 5 );
@@ -247,42 +247,75 @@ let flag = 0 ;
 			}
 		}		
 		ans_count++;
-		for(i= 0; i < user_anser.length ; i++){
+		
+		for(i=0;i< user_anser.length;i++){
 			ans_color[i] =  '';
-			for(j= 0; j < idol_anser.length ; j++){
-				if(user_anser[i] == idol_anser[j]){
-					if(i==j){
-						document.getElementById(user_anser[i]).style.backgroundColor = 'green';
-					}
-					else if(document.getElementById(user_anser[i]).style.backgroundColor != 'green'){
-						document.getElementById(user_anser[i]).style.backgroundColor = 'orange';
-					}
-					else ;
+			user_reg_temp = [];
+			multi_count = (user_anser.match(new RegExp(user_anser[i], 'g')) || []).length;
+			if(i==0||( i>0 && user_anser.lastIndexOf(user_anser[i],i-1) == -1)){
+				user_reg_temp =[user_anser[i],user_anser.indexOf(user_anser[i])];
+				for(n=1;n<multi_count;n++){
+					let user_reg_temp1 =user_anser.indexOf(user_anser[i],user_reg_temp[n]+1);
+					user_reg_temp = user_reg_temp.concat(user_reg_temp1);
 				}
-				else if(document.getElementById(user_anser[i]).style.backgroundColor == 'green' || document.getElementById(user_anser[i]).style.backgroundColor == 'orange') ;
-				else{
-					document.getElementById(user_anser[i]).style.backgroundColor = 'gray';
-				}
-
-				if(user_anser[i] == idol_anser[j]){
-					if(i==j){
-						ans_color[i] =  'green';
-					}
-					else if(ans_color[i] != 'green'){
-						ans_color[i] = 'orange';
-					}
-					else ;
-				}
-				else if(ans_color[i] == 'green' || ans_color[i] == 'orange') ;
-				else
-					ans_color[i] = 'gray';
+				user_reg.push(user_reg_temp);
 			}
 		}
+		
+		for(i=0;i<user_reg.length;i++){
+			for(j=0;j<idol_anser_reg.length;j++){
+				if(user_reg[i][0]==idol_anser_reg[j][0]){
+					for(k=1;k<user_reg[i].length;k++){
+						for(m=1;m<idol_anser_reg[j].length;m++){
+							if(user_reg[i][k]==idol_anser_reg[j][m]){
+								ans_color[user_reg[i][k]] = 'green';
+							}
+							else if(ans_color[user_reg[i][k]] != 'green'){
+								ans_color[user_reg[i][k]] = 'orange';
+							}
+							else ;
+						}
+					}
+					if(user_reg[i].length > idol_anser_reg[j].length){
+						k=user_reg[i].length - idol_anser_reg[j].length;
+						m=0;
+						while(k>0){
+							if(ans_color[user_reg[i][user_reg[i].length-m]] == 'orange'){
+								ans_color[user_reg[i][user_reg[i].length-m]] = 'gray';
+								k--;
+							}
+							m++;
+							if(m>100){ k=0; console.log("バグ発生")};
+						}
+					}
+				}
+				else{
+					for(k=1;k<user_reg[i].length;k++){
+						if(ans_color[user_reg[i][k]] == 'gray' || ans_color[user_reg[i][k]] == ''){
+							ans_color[user_reg[i][k]] = 'gray';
+						}
+					}
+				}
+			}
+		}
+
 		for(i= 0; i < user_anser.length ; i++){
 			var id_ans = "ans"+ans_count+"_"+(i+1);
 			document.getElementById(id_ans).innerText  = user_anser[i];
 			document.getElementById(id_ans).style.backgroundColor = ans_color[i];
+			if(document.getElementById(user_anser[i]).style.backgroundColor == 'green')
+				;
+			else if(document.getElementById(user_anser[i]).style.backgroundColor == 'orange') {
+				if(ans_color[i] =='green')
+					document.getElementById(user_anser[i]).style.backgroundColor =ans_color[i];
+				else ;
+			}
+			else {
+				document.getElementById(user_anser[i]).style.backgroundColor =ans_color[i];
+			}
 		}
+	
+
 		if(user_anser == idol_anser){
 			win_count++;
 			document.getElementById("arert_comment").textContent   = "ちひろ「正解です！プロデューサーさんは現在"+win_count+"連勝中です♪」";
@@ -290,45 +323,43 @@ let flag = 0 ;
 			document.getElementById('wordle_check').value = "続けて挑戦";
 			let x =2* (ans_count)/max_ans;
 			current_score += idol_list_temp.length*(11-max_ans)*Math.ceil(10*(1/Math.sqrt(0.008*Math.PI))*Math.exp(-(x*x)/2));
-			
 			document.getElementById("score").textContent   = current_score.toLocaleString();
 			if(Number(current_score) > Number(high_score))
 				high_score = current_score;
-				document.getElementById("high_score").textContent = high_score.toLocaleString();
+			document.getElementById("high_score").textContent = high_score.toLocaleString();
 			ans_count = max_ans+1;
-		document.getElementById("twitter_send").innerHTML ="<a href=\"javascript:twitText()\">結果をツイートする</a>";
-
+			document.getElementById("twitter_send").innerHTML ="<a href=\"javascript:twitText()\">結果をツイートする</a>";
 		}
 		else if(ans_count < max_ans){
-		document.getElementById('wordle_word').focus();
-		document.getElementById('wordle_word').value="";
+			document.getElementById('wordle_word').focus();
+			document.getElementById('wordle_word').value="";
 		}
 	}
 	else if(user_anser == "せんかわちひろ"){
-		document.getElementById("arert_comment").textContent   = "ちひろ「エイプリルフールですよね♪懐かしいです♪」";
+		document.getElementById("arert_comment").textContent = "ちひろ「エイプリルフールですよね♪懐かしいです♪」";
 		document.getElementById('wordle_word').focus();
 	}
 	else if(user_anser == "みしろせんむ"){
-		document.getElementById("arert_comment").textContent   = "美城専務「専務の美城だ。私がアイドルだと？冗談も程々にしたまえ (〃▽〃)ﾎﾟｯ」";
+		document.getElementById("arert_comment").textContent = "美城専務「専務の美城だ。私がアイドルだと？冗談も程々にしたまえ (〃▽〃)ﾎﾟｯ」";
 		document.getElementById('wordle_word').focus();
 	}
 	else if(user_anser == "みしろじょうむ"){
-		document.getElementById("arert_comment").textContent   = "美城専務「”専務”の美城だ。」";
+		document.getElementById("arert_comment").textContent = "美城専務「”専務”の美城だ。」";
 		document.getElementById('wordle_word').focus();
 	}
 	else if(user_anser == ""){
-		document.getElementById("arert_comment").textContent   = "ちひろ「アイドルの名前を入力してください♪」";
+		document.getElementById("arert_comment").textContent = "ちひろ「アイドルの名前を入力してください♪」";
 		document.getElementById('wordle_word').focus();
 	}
 	else{
-		document.getElementById("arert_comment").textContent   = "ちひろ「その名前のアイドルは事務所にいませんよ？」";
+		document.getElementById("arert_comment").textContent = "ちひろ「その名前のアイドルは事務所にいませんよ？」";
 		document.getElementById('wordle_word').focus();
 	}
 	if(ans_count == max_ans){
 		if(win_count == 0)
-			document.getElementById("arert_comment").textContent   = "ちひろ「正解は『"+idol_anser+"』ちゃんでした！";
+			document.getElementById("arert_comment").textContent = "ちひろ「正解は『"+idol_anser+"』ちゃんでした！";
 		else
-			document.getElementById("arert_comment").textContent   = "ちひろ「正解は『"+idol_anser+"』ちゃんでした！"+win_count+"連勝でしたね！」";
+			document.getElementById("arert_comment").textContent = "ちひろ「正解は『"+idol_anser+"』ちゃんでした！"+win_count+"連勝でしたね！」";
 		document.getElementById('wordle_word').value="";
 		document.getElementById('wordle_check').disabled = true;
 		document.getElementById("twitter_send").innerHTML ="<a href=\"javascript:twitText()\">結果をツイートする</a>";
@@ -340,6 +371,7 @@ function func_making_idol_anser(){
 	let i;
 	let j=0;
 	idol_list_temp =[];
+	idol_anser_reg =[];
 	for(i=0;i<idol_list.length;i++){
 		if(idol_list[i].length >= idol_ans_min && idol_list[i].length <= idol_ans_max){
 			idol_list_temp[j] = idol_list[i];
@@ -348,6 +380,20 @@ function func_making_idol_anser(){
 	}
 	let random = Math.floor( Math.random() * idol_list_temp.length );
 	idol_anser = idol_list_temp[random];
+		
+	for(i=0;i< idol_anser.length;i++){
+		let idol_anser_reg_temp = [];
+		let multi_count = (idol_anser.match(new RegExp(idol_anser[i], 'g')) || []).length;
+		if(i==0||( i>0 && idol_anser.lastIndexOf(idol_anser[i],i-1) == -1)){
+			idol_anser_reg_temp =[idol_anser[i],idol_anser.indexOf(idol_anser[i])];
+			for(n=1;n<multi_count;n++){
+				let idol_anser_reg_temp1 =idol_anser.indexOf(idol_anser[i],idol_anser_reg_temp[n]+1);
+				idol_anser_reg_temp = idol_anser_reg_temp.concat(idol_anser_reg_temp1);
+			}
+			idol_anser_reg.push(idol_anser_reg_temp);
+		}
+	}
+	console.log(idol_anser);
 }
 
 function func_worlde_continue(){
@@ -495,6 +541,8 @@ function func_check_num(){
 function func_full_idol_select(){
 	document.getElementById('idol_min_num').value = 3;
 	document.getElementById('idol_max_num').value = 9;
+	idol_ans_min = Number(document.getElementById('idol_min_num').value);
+	idol_ans_max = Number(document.getElementById('idol_max_num').value);
 	func_making_table();
 	func_wordle_reset();
 
